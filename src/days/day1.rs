@@ -1,7 +1,7 @@
 use std::fs;
 use std::io::Result;
 
-pub fn part1() -> Result<()> {
+pub fn part1() -> Result<i32> {
     let filename = "src/input/day1.txt";
     let contents = fs::read_to_string(filename)?;
 
@@ -19,11 +19,11 @@ pub fn part1() -> Result<()> {
     for i in 0..v2.len() {
         acc += (v1[i] - v2[i]).abs();
     }
-    println!("{:?}", acc);
-    Ok(())
+
+    Ok(acc)
 }
 
-pub fn part2() -> Result<()> {
+pub fn part2() -> Result<i32> {
     let filename = "src/input/day1.txt";
     let contents = fs::read_to_string(filename)?;
 
@@ -47,6 +47,5 @@ pub fn part2() -> Result<()> {
         });
         acc += v1[i] * similarity;
     });
-    println!("{:?}", acc);
-    Ok(())
+    Ok(acc)
 }

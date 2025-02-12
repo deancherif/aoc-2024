@@ -30,26 +30,15 @@ pub fn part1() -> Result<i32> {
         } else {
             1
         };
-        println!("{:?} ({})", levels, direction);
         for (j, level) in levels.iter().enumerate() {
             if j > 0
                 && !(((direction == 1 && levels[j - 1] < *level)
                     || (direction == -1 && levels[j - 1] > *level))
                     && (levels[j - 1] as i16 - *level as i16).abs() <= 3)
             {
-                println!(
-                    "-- ({},{}) => ({} || {}) && {}",
-                    levels[j - 1],
-                    *level,
-                    (direction == 1 && levels[j - 1] < *level),
-                    (direction == -1 && levels[j - 1] > *level),
-                    (levels[j - 1] as i16 - *level as i16).abs() <= 3
-                );
                 safe = false;
             }
         }
-
-        println!("{}", safe);
 
         if safe {
             safe_count += 1;
